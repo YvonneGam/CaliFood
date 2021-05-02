@@ -1,0 +1,44 @@
+
+/** Menu & Footer **/
+
+body {
+    margin: 0;
+}
+
+.menu {
+    background-color: #D90B42;
+    min-height: 100px;
+    top: 0;
+    padding: 25px; 
+}
+
+.menu-links a{
+color: white;
+text-decoration: none; 
+}
+
+
+.menu-input {
+    display: flex; 
+    justify-content: space-between;
+}
+
+.shopping-basket-icon {
+    width: 70px; 
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+.footer {
+    background-color: #04ADBF;
+    min-height: 150px;
+    bottom: 0;
+    margin-top:80px; 
+}
+

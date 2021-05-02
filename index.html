@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Califood</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="footer-menu-style.css">
+    <link rel="stylesheet" href="index-style.css">
+    <script src="menu.js"></script>
+    <script src="slideshow.js"></script>
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Yesteryear&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body onload="includeHTML(), startSlideshow()">
+
+    <div w3-include-html="templates/header.html"></div>
+
+    <div class="main">
+
+        <div class="text-main">
+            <h1>California-Feeling </h1>
+            <h1>für zuhause?</h1>
+            <h3>Kein Problem, wir liefern jetzt zu dir nach Hause!</h3>
+            <a href="order.html"><button>Hier bestellen</button> </a> 
+        </div> 
+
+        <div class="slider-container">
+            <div id="img-1" class="slider-img">
+                <img src="img/pexels-photo-4601370.jpeg">
+            </div>
+            <div id="img-2" class="slider-img">
+                <img src="img/doppelburger_pexels-photo-2983098.jpeg">
+            </div>
+            <div id="img-3" class="slider-img">
+                <img src="img/pexels-photo-219998.jpeg">
+            </div>
+        </div>
+
+    </div>
+
+
+    <div w3-include-html="templates/footer.html"></div>
+
+
+</body>
+
+</html>

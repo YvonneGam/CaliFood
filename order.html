@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Califood-Order</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="footer-menu-style.css">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <script src="variables.js"></script>
+    <script src="menu.js"></script>
+    <script src="script.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+    </style>
+</head>
+
+<body onload="openMenu(); includeHTML()">
+
+    <div w3-include-html="templates/header.html"></div>
+
+
+    <div class="section-container">
+        <h2 class="m-lr">Starter</h2>
+        <div class="order-container m-lr">
+            <div id="starter" class="food-list">
+            </div>
+        </div>
+    </div>
+
+    <div class="section-container">
+        <h2 class="m-lr">Main Courses</h2>
+        <div class="order-container m-lr">
+
+            <div id="maincourse" class="food-list">
+            </div>
+        </div>
+
+    </div>
+
+    <div id="shoppingCart" class="shopping-card-container d-none">
+        <div class="shopping-card">
+            <h2 class="h2-shoppingcart">
+                Warenkorb
+            </h2>
+            <div class="line"></div>
+            <div class="current-shopping-cart" id="currentShoppingCart">
+            </div>
+
+            <div id="priceContainer" class="price-container">
+                <div class="line"></div>
+
+                <div class="delivery-items">
+                    <div>Zwischensumme</div>
+                    <div id="sum"> €</div>
+                </div>
+
+                <div class="delivery-items">
+                    <div>Lieferkosten</div>
+                    <div id="deliverycosts">5,00 €</div>
+                </div>
+
+                <div class="delivery-items">
+                    <div class="sale-code">
+                        <input id="promotioncode" placeholder="Code" type="text" value=""></input>
+                        <button onclick="calcSale()" class="code-btn">einlösen</button>
+                    </div>
+                    <div id="discount">€</div>
+
+                </div>
+
+                <div class="delivery-items">
+                    <div>Gesamt</div>
+                    <div id="totalprice">- €</div>
+                </div>
+            </div>
+
+            <div class="links-cart">
+                <span onclick="closeShoppingcart()">Mehr hinzufügen</span>
+                <span>Zur Kasse</span>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div w3-include-html="templates/footer.html"></div>
+
+
+</body>
+
+</html>
