@@ -20,3 +20,21 @@ function startSlideshow() {
         startSlideshow(); //repeat the function
     }, 12000);
 }
+
+
+/**
+ * This function hides the basket Icon on the index.html
+ */
+function hideBasket() {
+    if (window.location.href.endsWith('index.html')) {
+        document.getElementById('basketIcon').classList.add('d-none');
+    }
+}
+
+
+/**
+ * This function hides the basket Icon on the index.html
+ */
+/* function hideBasket() {
+    document.getElementById("basketIcon").classList.add('d-none');
+} */

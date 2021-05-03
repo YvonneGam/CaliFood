@@ -81,5 +81,37 @@ let maincourse = [{
 }
 ];
 
+
+let dessert = [{
+    'name': 'Pancakes',
+    'info': 'mit Beerentopping',
+    'price': 6.50,
+    'img': 'img/pexels-photo-376464.jpeg',
+    'amount': 1,
+    'type': 'dessert'
+}, {
+    'name': 'Macarons',
+    'info': '4x Schoko-Macarons mit Vanillefüllung',
+    'price': 5.50,
+    'img': 'img/pexels-photo-2226977.jpeg',
+    'amount': 1,
+    'type': 'dessert'
+}, {
+    'name': 'Cheesecake',
+    'info': 'mit Pecanuss-Karamell-Topping',
+    'price': 4.50,
+    'img': 'img/pexels-photo-3071821.jpeg',
+    'amount': 1,
+    'type': 'dessert'
+}, {
+    'name': 'Brownie',
+    'info': 'mit Vanilleeis',
+    'price': 4.90,
+    'img': 'img/pexels-photo-683499.jpeg',
+    'amount': 1,
+    'type': 'dessert'
+}
+];
+
 //every order is pushed to this array
 let cart = [];

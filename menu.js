@@ -1,9 +1,11 @@
+
 /**
  * This funciton loads all items onload at order.html
  */
 function openMenu() { //Menü wird beim Öffnen der Seite geladen
     loadItem(starter, 'starter');
     loadItem(maincourse, 'maincourse');
+    loadItem(dessert, 'dessert');
 }
 
 
@@ -54,7 +56,16 @@ function checkBasket(type, index) {
     if (type == 'maincourse') {
         item = maincourse[index];
     }
-    /*     checkBasketExist(); */
+    if (type == 'dessert') {
+        item = dessert[index];
+    }
+    let itemInCart = cart.find(e => e.name == item.name); //is searching if the name already exist in the "cart"-array
+    console.log('incard', itemInCart);
+    if (itemInCart) {
+        alert('Das Gericht ist bereits im Warenkorb, du kannst die Anzahl direkt im Warenkorb erhöhen.');
+    } else { //if the item isn´t already in basket, its added here
+        addToBasket(type, index);
+    }
 }
 
 /**
@@ -65,7 +76,7 @@ function checkBasket(type, index) {
  */
 /* function checkBasketExist(type, index, item) {
     let itemInCart = cart.find(e => e.name == item.name);
-    console.log(itemInCart);
+    console.log('incard', itemInCart);
     if (itemInCart) {
         alert('Das Gericht ist bereits im Warenkorb, du kannst die Anzahl direkt im Warenkorb erhöhen.');
     } else { //if the item isn´t already in basket, its added here
@@ -84,9 +95,13 @@ function addToBasket(type, index) {
     if (type == 'maincourse') {
         cart.push(maincourse[index]);
     }
+    if (type == 'dessert') {
+        cart.push(dessert[index]);
+    }
     updateBasket();
     checkBasket();
 }
+
 
 
 /**
@@ -161,12 +176,27 @@ function increaseAmount(type, i) {
  * @param {*} i 
  */
 function lessAmount(type, i) {
-    cart[i]['amount']--;
-    console.log(cart[i]['amount']);
-    calcPayPrice();
-    calcTotalPrice();
+    if (cart[i]['amount'] > 1) {
+        cart[i]['amount']--;
+        console.log(cart[i]['amount']);
+        calcPayPrice();
+        calcTotalPrice();
+        updateBasket();
+        freeDelivery();
+    } else {
+        deleteDish(i)
+    };
+}
+
+/**
+ * This function deletes the dish from the basket
+ * @param {} type 
+ * @param {*} index 
+ */
+function deleteDish(index) {
+    cart.splice([index], 1);
     updateBasket();
-    freeDelivery();
+    checkBasketInput();
 }
 
 /**This function calculates the price based on the selected amount
@@ -197,6 +227,7 @@ function calcSumPrice() {
         console.log('summe', summe);
     }
     document.getElementById('sum').innerHTML = `${summe.toFixed(2).replace(".", ",")} €`;
+
 }
 
 
@@ -225,7 +256,7 @@ function calcSale(summe) {
         console.log('discount:', discount);
         document.getElementById('discount').innerHTML = `${discount} €`;
     } else {
-        disount = summe; 
+        disount = summe;
         document.getElementById('discount').innerHTML = `${discount},00 €`;
     }
 }
@@ -240,7 +271,7 @@ function calcTotalPrice(summe) {
     } else {
         for (let i = 0; i < cart.length; i++) {
             total = summe + 5.00;
-            console.log(total);
+            console.log('total', total);
             document.getElementById('totalprice').innerHTML = `${total.toFixed(2).replace(".", ",")} €`;
         }
     }
