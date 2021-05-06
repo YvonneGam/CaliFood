@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="footer-menu-style.css">
+    <link rel="stylesheet" href="index-style.css">
+    <link rel="stylesheet" href="contact.css">
+    <script src="menu.js"></script>
+    <script src="slideshow.js"></script>
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+</head>
+
+
+<body onload="includeHTML()">
+    <div w3-include-html="templates/header.html"></div>
+
+    <div class="main">
+
+        <div class="location">
+            <div class="head-text">
+                <h2>Hier findest du uns</h2>
+
+                <div class="points">
+                    <img src="img/placeholder.svg">
+                    <div>Rathausplatz <br>
+                        86167 Augsburg
+                    </div>
+                </div>
+            </div>
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2650.570702569282!2d10.895585315025984!3d48.3687722792425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ebd514efc2cfb%3A0x3a84852461ee1892!2sRathausplatz!5e0!3m2!1sde!2sde!4v1620287870459!5m2!1sde!2sde"
+                width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+
+        <div class="saying">
+            Das leckerste Essen der Stadt
+        </div>
+
+        <div class="location">
+            <img class="contact-img" style="margin-right: 40px" src="img/pexels-photo-2995188.jpeg">
+
+            <div class="head-text">
+                <h2>Unsere Öffnungszeiten</h2>
+
+                <div class="points">
+                    <img src="img/clock.svg">
+                    <div>Mo. bis Fr., 17.00 Uhr bis 22.00 Uhr <br>
+                        Sa., So., und Feiertags 11.00 Uhr bis 23.00 Uhr
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="location">
+
+            <div class="head-text">
+                <h2>Kontakt</h2>
+
+                <div class="points">
+                    <img src="img/telefon.svg">
+                    <div>Wir nehmen Bestellungen auch gerne telefonsich auf: 0123/ 45 67 89 <br>
+                        Wenn du uns was anderes mitteilen möchtest nutze gerne unser <a href="#">Kontaktformular</a>
+                    </div>
+                </div>
+            </div>
+            <img class="contact-img" src="img/pexels-photo-4255386.jpeg">
+        </div>
+
+
+
+        <div w3-include-html="templates/footer.html"></div>
+
+</body>
+
+</html>

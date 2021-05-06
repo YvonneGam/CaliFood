@@ -115,3 +115,10 @@ let dessert = [{
 
 //every order is pushed to this array
 let cart = [];
+
+let deliverycosts = 5.00;
+let freedelivery = 0.00;
+
+let nodiscount = 0.00;
+
+let discount = 2.00;

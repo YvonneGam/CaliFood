@@ -24,7 +24,7 @@ function loadItem(items, id) {
 
         <div class="image-container">
         <img class="food-img" src="${items[i]['img']}">
-        <div class="plus" onclick="addToBasket('${id}', ${i}), calcSumPrice(${i}), calcTotalPrice(${i}), showNewElement(${i})"> + </div>
+        <div class="plus" onclick="addToBasket('${id}', ${i}), calcPayPrice(${i}), showNewElement(${i})"> + </div>
         </div>
 
         <h3>${items[i]['name']}</h3>
@@ -59,13 +59,6 @@ function checkBasket(type, index) {
     if (type == 'dessert') {
         item = dessert[index];
     }
-    let itemInCart = cart.find(e => e.name == item.name); //is searching if the name already exist in the "cart"-array
-    console.log('incard', itemInCart);
-    if (itemInCart) {
-        alert('Das Gericht ist bereits im Warenkorb, du kannst die Anzahl direkt im Warenkorb erhöhen.');
-    } else { //if the item isn´t already in basket, its added here
-        addToBasket(type, index);
-    }
 }
 
 /**
@@ -75,7 +68,7 @@ function checkBasket(type, index) {
  * @param {*} item
  */
 /* function checkBasketExist(type, index, item) {
-    let itemInCart = cart.find(e => e.name == item.name);
+    let itemInCart = cart.find(dish => dish.name == item.name);
     console.log('incard', itemInCart);
     if (itemInCart) {
         alert('Das Gericht ist bereits im Warenkorb, du kannst die Anzahl direkt im Warenkorb erhöhen.');
@@ -85,21 +78,27 @@ function checkBasket(type, index) {
 } */
 
 /**
- * Item is pushed to array when clicking on the "plus"
+ * Item is pushed to array when clicking on the "plus" &checks if the item already exist in the basket
  */
-
 function addToBasket(type, index) {
-    if (type == 'starter') {
+    checkBasket();
+    if (type == 'starter' && !cart.includes(starter[index])) {
         cart.push(starter[index]);
     }
-    if (type == 'maincourse') {
+    else if (type == 'starter' && cart.includes(starter[index])) {
+        increaseAmount(type, index);
+    }
+    if (type == 'maincourse' && !cart.includes(maincourse[index])) {
         cart.push(maincourse[index]);
+    }
+    else if (type == 'maincourse' && cart.includes(maincourse[index])) {
+        increaseAmount(type, index);
     }
     if (type == 'dessert') {
         cart.push(dessert[index]);
     }
+    calcPayPrice();
     updateBasket();
-    checkBasket();
 }
 
 
@@ -124,6 +123,7 @@ function updateBasket() {
 
     </div>`;
     }
+    calcSale();
 }
 
 
@@ -164,9 +164,7 @@ function checkBasketInput() {
 function increaseAmount(type, i) {
     cart[i]['amount']++;
     console.log(cart[i]['amount']);
-    calcSumPrice();
-    freeDelivery();
-    calcTotalPrice();
+    calcPayPrice();
     updateBasket();
 }
 
@@ -180,9 +178,7 @@ function lessAmount(type, i) {
         cart[i]['amount']--;
         console.log(cart[i]['amount']);
         calcPayPrice();
-        calcTotalPrice();
         updateBasket();
-        freeDelivery();
     } else {
         deleteDish(i)
     };
@@ -211,8 +207,11 @@ function calculatePrice(cartItem) {
 
 
 function calcPayPrice() {
-    calcSumPrice();
-    calcTotalPrice();
+    let result = calcSumPrice();
+    calcTotalPrice(result);
+    console.log('result', result);
+
+
     updateBasket();
 }
 
@@ -227,37 +226,26 @@ function calcSumPrice() {
         console.log('summe', summe);
     }
     document.getElementById('sum').innerHTML = `${summe.toFixed(2).replace(".", ",")} €`;
-
+    return summe;
 }
 
 
-/**
- * Checks if the delivery is for free, when the sum is more than 20€
- * @param {*} summe 
- */
-function freeDelivery(summe) {
-    if (summe >= 20) {
-        document.getElementById('deliverycosts').innerHTML = '0';
-        console.log('free');
-    }
-}
 
 /**
  * This function calculates the discount
- * @param {*} summe 
  */
-function calcSale(summe) {
+function calcSale() {
+    let result = calcSumPrice();
     let discount = 0;
     let promotion = document.getElementById('promotioncode').value;
     console.log('promotion:', promotion);
 
     if (promotion == 'food10') {
-        discount += summe * 0.10;
+        discount = result * 0.10;
         console.log('discount:', discount);
-        document.getElementById('discount').innerHTML = `${discount} €`;
+        document.getElementById('discount').innerHTML = `-${discount.toFixed(2).replace(".", ",")} €`;
     } else {
-        disount = summe;
-        document.getElementById('discount').innerHTML = `${discount},00 €`;
+        document.getElementById('discount').innerHTML = `${discount.toFixed(2).replace(".", ",")} €`;
     }
 }
 
@@ -266,17 +254,20 @@ function calcSale(summe) {
  */
 function calcTotalPrice(summe) {
     let total = 0;
+
     if (summe >= 20) {
-        document.getElementById('deliverycosts').innerHTML = 0;
+        document.getElementById('deliverycosts').innerHTML = `${freedelivery.toFixed(2).replace(".", ",")} €`; //freedelivery is defined at vriables.js (0€)
+        for (let i = 0; i < cart.length; i++) {
+            total = summe;
+            console.log('total ohne lieferkosten', total);
+            document.getElementById('totalprice').innerHTML = `${total.toFixed(2).replace(".", ",")} €`;
+        }
     } else {
         for (let i = 0; i < cart.length; i++) {
-            total = summe + 5.00;
+            total = summe + deliverycosts; //deliverycosts are defined at vriables.js;
             console.log('total', total);
             document.getElementById('totalprice').innerHTML = `${total.toFixed(2).replace(".", ",")} €`;
+            document.getElementById('deliverycosts').innerHTML = `${deliverycosts.toFixed(2).replace(".", ",")} €`;
         }
     }
 }
-
-
-
-
