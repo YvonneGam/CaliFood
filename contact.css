@@ -3,6 +3,8 @@
     justify-content: space-between;
     margin-top: 50px;
     align-items: center;
+    padding-right: 50px;
+    padding-left: 50px;
 }
 
 .head-text {
@@ -11,7 +13,11 @@
 
 h2 {
     margin-top: 0;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    width: 70%;
+   text-align: center;
+   align-items: center;
 }
 
 .points {
@@ -26,7 +32,7 @@ h2 {
 
 .saying {
     margin-top: 40px;
-    background-color: #D90B42;
+    background-image: url('img/welle2pexels-photo-2387793.jpeg');
     width: 100%;
    min-height: 150px;
    display: flex;
@@ -57,6 +63,12 @@ body {
     padding-top: 0px;
 }
 
+.wpcf7 {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
 h1 {
    color: rgb(2, 8, 37);; 
    text-shadow: 1px 1px 0 rgba(0,0,0,0.4);
@@ -68,10 +80,15 @@ h1 {
    margin: 0px;
 }
 
+p {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 form {
     margin-left:auto;
     margin-right:auto;
-    width: 965px;
     height: 450px;
     padding:30px;
     -moz-border-radius: 10px;
@@ -81,6 +98,7 @@ form {
     -webkit-background-clip: padding-box;
     background-clip: padding-box; 
     overflow: hidden; 
+    align-items:center;
 }
 
 textarea{

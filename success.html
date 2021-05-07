@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link rel="icon" href="img/logo-favicon.ico" type="image/x-icon">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <title>E-Mail wurde verse</title>
+    <script src="kochwelt.js"></script>
+    <link rel="stylesheet" href="footer-menu.css">
+    <link rel="stylesheet" href="kochwelt.css">
+    <style>
+        body{
+            min-height: 100%;
+        }
+
+        .bg-mail {
+            min-height: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overflow-hidden">
+        <!-- Menu Responsive -->
+        <img onclick="showMenu()" class="menu-bar" src="img/bars-solid.svg">
+        <div class="overlay-menu" id="menu">
+          <a href="index.html">Start</a>
+          <a href="rezeptdestages.html">Rezept des Tages</a>
+          <a onclick="buttonClose()" href="send_mail.html">Kontakt</a>
+          <a onclick="buttonClose()" href="impressum.html">Impressum</a>
+    
+          <button onclick="buttonClose()" class="close-button">
+            Close
+          </button>
+    
+        </div>
+    
+        <div class="Menu" class="show-menu" id="menu">
+          <a href="index.html"><img src="img/logo.png"></a>
+          <div class="menu-links">
+            <a href="index.html">Start</a>
+            <a href="rezeptdestages.html">Rezept des Tages</a>
+            <a href="send_mail.html">Kontakt</a>
+            <a href="impressum.html">Impressum</a>
+          </div>
+        </div>
+
+        <div class="bg-mail">
+
+        <h1>E-Mail wurde gesendet!</h1>
+
+    </div>
+
+</body>
+
+</html>

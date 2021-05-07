@@ -24,7 +24,7 @@ function loadItem(items, id) {
 
         <div class="image-container">
         <img class="food-img" src="${items[i]['img']}">
-        <div class="plus" onclick="addToBasket('${id}', ${i}), calcPayPrice(${i}), showNewElement(${i})"> + </div>
+        <div class="plus" onclick="addToBasket('${id}', ${i}), calcPayPrice(${i})"> + </div>
         </div>
 
         <h3>${items[i]['name']}</h3>
@@ -47,7 +47,7 @@ function showNewElement() {
 
 // Shopping Cart
 
-//Hier wird geprüft ob das Produkt bereits im Warenkorb ist
+//Hier wird geprüft welches das jeweilige Produkt ist
 function checkBasket(type, index) {
     let item;
     if (type == 'starter') {
@@ -94,11 +94,15 @@ function addToBasket(type, index) {
     else if (type == 'maincourse' && cart.includes(maincourse[index])) {
         increaseAmount(type, index);
     }
-    if (type == 'dessert') {
+    if (type == 'dessert' && !cart.includes(dessert[index])) {
         cart.push(dessert[index]);
+    }
+    else if (type == 'dessert' && cart.includes(dessert[index])) {
+        increaseAmount(type, index);
     }
     calcPayPrice();
     updateBasket();
+    showNewElement();
 }
 
 
@@ -114,12 +118,14 @@ function updateBasket() {
         document.getElementById('currentShoppingCart').innerHTML += `
     <div class="delivery-items">
     
+    <div class="basket-amount"> ${cartItem['amount']}x </div>
     <div class="basket-names"> ${cartItem['name']} </div>
     <div class="plusminus-container">
     <button onclick="lessAmount('${cartItem['type']}', ${index})" class="plusminus" data-min="0"> - </button>
     <button onclick="increaseAmount('${cartItem['type']}', ${index})" class="plusminus"> + </button>
     </div>
     <div class="basket-price"> ${calculatePrice(cartItem)} € </div> 
+    <img class="dustbin" onclick="deleteDish()" src="img/dustbin.svg">
 
     </div>`;
     }
@@ -210,7 +216,6 @@ function calcPayPrice() {
     let result = calcSumPrice();
     calcTotalPrice(result);
     console.log('result', result);
-
 
     updateBasket();
 }
