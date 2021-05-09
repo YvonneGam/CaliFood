@@ -148,15 +148,14 @@ animation: leftRight 0.4s ease-in-out;
   }
 }
 
+.animation-basket {
+    animation:  scalePlus 0.9s ease-in-out;
+}
 
 .d-none {
     display: none !important; 
 }
 
-
-.animation-basket {
-    animation:  scalePlus 0.9s ease-in;
-}
 
 /** Shopping Cart**/
 
@@ -180,6 +179,7 @@ animation: leftRight 0.4s ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 100;
 }
 
 .shopping-card {

@@ -56,7 +56,7 @@
             <h2 class="h2-shoppingcart">
                 Warenkorb
             </h2>
-            <div class="line"></div>
+         <!--    <div class="line"></div> -->
             <div class="current-shopping-cart" id="currentShoppingCart">
             </div>
 
@@ -71,7 +71,7 @@
                 <div class="delivery-items">
                     <div class="sale-code">
                         <input id="promotioncode" placeholder="Code" type="text" value=""></input>
-                        <button onclick="calcSale()" class="code-btn">einlösen</button>
+                        <button onclick="calcSale(), calcPayPrice(), updateBasket()" class="code-btn">einlösen</button>
                     </div>
                     <div id="discount">€</div>
                 </div>
@@ -81,18 +81,12 @@
                     <div id="deliverycosts">5,00 €</div>
                 </div>
 
-
-                <div class="delivery-items">
-                    <div>Gesamt</div>
-                    <div id="totalprice"> €</div>
+                <div class="line"></div>
+                <div class="delivery-items" style="margin-top: 25px">
+                    <div> <b>Gesamt</b></div>
+                    <div id="totalprice"> <b> €</b></div>
                 </div>
                 
-<!--                 <div class="delivery-items">
-                    <div>Gesamt abzgl. Rabatt</div>
-                    <div id="priceAfterCode"> €</div>
-                </div> -->
-
-
             </div>
 
             <div class="links-cart">

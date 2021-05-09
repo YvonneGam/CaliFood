@@ -42,6 +42,9 @@ function loadItem(items, id) {
 function showNewElement() {
     document.getElementById('basketIcon').classList.add('animation-basket');
     console.log('Es ist jetzt ein neues Element im Warenkorb');
+    setTimeout(function () {
+        document.getElementById('basketIcon').classList.remove('animation-basket');
+    }, 900); //animation is removed every 900ms, so it can animate again
 }
 
 
@@ -84,25 +87,30 @@ function addToBasket(type, index, i) {
     checkBasket();
     if (type == 'starter' && !cart.includes(starter[index])) {
         cart.push(starter[index]);
+        showNewElement();
     }
     else if (type == 'starter' && cart.includes(starter[index])) {
-        increaseAmount(type, index);
+        /* increaseAmount(type, index); */
+        alert('Produkt ist bereits im Warenkorb, du kannst die Anzahl direkt im Warenkorb erhöhen');
     }
     if (type == 'maincourse' && !cart.includes(maincourse[index])) {
         cart.push(maincourse[index]);
+        showNewElement();
     }
     else if (type == 'maincourse' && cart.includes(maincourse[index])) {
-        increaseAmount(type, index, i);
+     /*    increaseAmount(type, index, i); */
+        alert('Produkt ist bereits im Warenkorb, du kannst die Anzahl direkt im Warenkorb erhöhen');
     }
     if (type == 'dessert' && !cart.includes(dessert[index])) {
         cart.push(dessert[index]);
+        showNewElement();
     }
     else if (type == 'dessert' && cart.includes(dessert[index])) {
-        increaseAmount(type, index);
+     /*    increaseAmount(type, index); */
+        alert('Produkt ist bereits im Warenkorb, du kannst die Anzahl direkt im Warenkorb erhöhen');
     }
     calcPayPrice();
     updateBasket();
-    showNewElement();
 }
 
 
@@ -211,7 +219,9 @@ function calculatePrice(cartItem) {
         cartItem['price'] * 100 / 100).toFixed(2).replace(".", ",");
 }
 
-
+/**
+ * This function calculates the Sum & Totalprice
+ */
 function calcPayPrice() {
     let result = calcSumPrice();
     calcTotalPrice(result);
@@ -244,46 +254,58 @@ function calcSale() {
     let promotion = document.getElementById('promotioncode').value;
     console.log('promotion:', promotion);
 
-    if (promotion == 'food10') {
+    if (promotion == 'food-10') {
         discount = result * 0.10;
         console.log('discount:', discount);
         document.getElementById('discount').innerHTML = `-${discount.toFixed(2).replace(".", ",")} €`;
     } else {
         document.getElementById('discount').innerHTML = `${discount.toFixed(2).replace(".", ",")} €`;
     }
-    return discount; 
+  return discount; 
 }
 
+
+
 /**
- * This function calculates the total price including delivery costs
+ * This function calculates the total price including delivery costs & discount
  */
 function calcTotalPrice(summe, discount) {
     let total = 0;
-    discount =calcSale();
-    console.log('abgezogener discount', discount);
+    discount = calcSale();
+
     if (summe >= 20) {
         document.getElementById('deliverycosts').innerHTML = `${freedelivery.toFixed(2).replace(".", ",")} €`; //freedelivery is defined at vriables.js (0€)
-        for (let i = 0; i < cart.length; i++) {
-            total = summe - discount;
-            console.log('total ohne lieferkosten', total);
-            document.getElementById('totalprice').innerHTML = `${total.toFixed(2).replace(".", ",")} €`;
-        }
+        noDeliveryCosts(total, summe, discount);
     } else {
-        for (let i = 0; i < cart.length; i++) {
-            total = summe + deliverycosts - discount; //deliverycosts are defined at vriables.js;
-            console.log('total', total);
-            document.getElementById('totalprice').innerHTML = `${total.toFixed(2).replace(".", ",")} €`;
-            document.getElementById('deliverycosts').innerHTML = `${deliverycosts.toFixed(2).replace(".", ",")} €`;
-        }
-    } 
+        payDeliveryCosts(total, summe, discount);
+    }
 }
 
+/**
+ * This function calculats the total costs and adds the delivery costs, deliverycosts are defined at vriables.js
+ * @param {} total 
+ * @param {*} summe 
+ * @param {*} discount 
+ */
+function payDeliveryCosts(total, summe, discount) {
+    for (let i = 0; i < cart.length; i++) {
+        total = summe + deliverycosts - discount;
+        console.log('total', total);
+        document.getElementById('totalprice').innerHTML = `${total.toFixed(2).replace(".", ",")} €`;
+        document.getElementById('deliverycosts').innerHTML = `${deliverycosts.toFixed(2).replace(".", ",")} €`;
+    }
+}
 
-
-/*  function calcafterCode(resultTotal) {
-    sale = calcSale();
-    let totalafterCode = resultTotal - sale;
-    console.log('endpreis', totalafterCode);
-    document.getElementById('priceAfterCode').innerHTML = `${totalafterCode.toFixed(2).replace(".", ",")} €`;
-
-}  */
+/**
+ * This function calculates the total costs 
+ * @param {} total 
+ * @param {*} summe 
+ * @param {*} discount 
+ */
+function noDeliveryCosts(total, summe, discount) {
+    for (let i = 0; i < cart.length; i++) {
+        total = summe - discount;
+        console.log('total ohne lieferkosten', total);
+        document.getElementById('totalprice').innerHTML = `${total.toFixed(2).replace(".", ",")} €`;
+    }
+}
