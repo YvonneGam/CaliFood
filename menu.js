@@ -80,7 +80,7 @@ function checkBasket(type, index) {
 /**
  * Item is pushed to array when clicking on the "plus" &checks if the item already exist in the basket
  */
-function addToBasket(type, index) {
+function addToBasket(type, index, i) {
     checkBasket();
     if (type == 'starter' && !cart.includes(starter[index])) {
         cart.push(starter[index]);
@@ -92,7 +92,7 @@ function addToBasket(type, index) {
         cart.push(maincourse[index]);
     }
     else if (type == 'maincourse' && cart.includes(maincourse[index])) {
-        increaseAmount(type, index);
+        increaseAmount(type, index, i);
     }
     if (type == 'dessert' && !cart.includes(dessert[index])) {
         cart.push(dessert[index]);
@@ -216,7 +216,6 @@ function calcPayPrice() {
     let result = calcSumPrice();
     calcTotalPrice(result);
     console.log('result', result);
-
     updateBasket();
 }
 
@@ -252,27 +251,39 @@ function calcSale() {
     } else {
         document.getElementById('discount').innerHTML = `${discount.toFixed(2).replace(".", ",")} €`;
     }
+    return discount; 
 }
 
 /**
  * This function calculates the total price including delivery costs
  */
-function calcTotalPrice(summe) {
+function calcTotalPrice(summe, discount) {
     let total = 0;
-
+    discount =calcSale();
+    console.log('abgezogener discount', discount);
     if (summe >= 20) {
         document.getElementById('deliverycosts').innerHTML = `${freedelivery.toFixed(2).replace(".", ",")} €`; //freedelivery is defined at vriables.js (0€)
         for (let i = 0; i < cart.length; i++) {
-            total = summe;
+            total = summe - discount;
             console.log('total ohne lieferkosten', total);
             document.getElementById('totalprice').innerHTML = `${total.toFixed(2).replace(".", ",")} €`;
         }
     } else {
         for (let i = 0; i < cart.length; i++) {
-            total = summe + deliverycosts; //deliverycosts are defined at vriables.js;
+            total = summe + deliverycosts - discount; //deliverycosts are defined at vriables.js;
             console.log('total', total);
             document.getElementById('totalprice').innerHTML = `${total.toFixed(2).replace(".", ",")} €`;
             document.getElementById('deliverycosts').innerHTML = `${deliverycosts.toFixed(2).replace(".", ",")} €`;
         }
-    }
+    } 
 }
+
+
+
+/*  function calcafterCode(resultTotal) {
+    sale = calcSale();
+    let totalafterCode = resultTotal - sale;
+    console.log('endpreis', totalafterCode);
+    document.getElementById('priceAfterCode').innerHTML = `${totalafterCode.toFixed(2).replace(".", ",")} €`;
+
+}  */

@@ -19,7 +19,17 @@
 
     <div class="wpcf7" id="wpcf7-f156-p143-o1 formwrap">
       <h2>Schreib uns</h2>
-        <form action="send-mail.php" method="post" class="wpcf7-form" novalidate="novalidate">
+
+<!-- <form action="http://f01329a5@students.developerakademie.com/Califood/send_mail.php" method="post">
+  <input name="name" placeholder="name">
+  <textarea name="message" placeholder="message"></textarea>
+  <button type="submit">Send Mail</button>
+  </form>
+ -->
+
+
+
+       <form action="http://yvonne-gamboeck.developerakademie.com/califood/send_mail.php" method="post" class="wpcf7-form" novalidate="novalidate">
             <div style="display: none;">
                 <input type="hidden" name="_wpcf7" value="156">
                 <input type="hidden" name="_wpcf7_version" value="3.7.2">
@@ -29,26 +39,22 @@
             </div>
             <p>
                <span class="wpcf7-form-control-wrap Name">
-                 <input type="text" name="Name" value="" size="40" class="nameinput wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Name">
+                 <input type="text" name="name" value="" size="40" class="nameinput wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Name">
               </span>
               <span class="wpcf7-form-control-wrap Email">
-                <input type="email" name="Email"  size="40" class="emailinput wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email">
-              </span>
-<!--               <span class="wpcf7-form-control-wrap Subject flat"> -->
-<!--                 <select name="Subject" class="indent wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
-                  <option value="General">General</option>
-                  <option value="Booking">Booking</option>
-                </select> -->
-              </span>
+                <input type="email" name="email"  size="40" class="emailinput wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email">
+              </span> 
+
+           </span>
               <span class="wpcf7-form-control-wrap Message">
-                <textarea name="Message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Message"></textarea>
+                <textarea name="message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Message"></textarea>
               </span>
               <input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit btn">
             <!--   <img class="ajax-loader" src="http://www.jordancundiff.com/wp-content/plugins/contact-form-7/images/ajax-loader.gif" alt="Sending ..." style="visibility: hidden;"> -->
-          </p>
+<!--           </p>
           <div class="wpcf7-response-output wpcf7-display-none">
           </div>
-      </form>
+      </form> 
     </div>
 
     <div w3-include-html="templates/footer.html"></div>

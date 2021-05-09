@@ -21,6 +21,10 @@
 
     <div w3-include-html="templates/header.html"></div>
 
+    
+    <img id="basketIcon" class="shopping-basket-icon" onclick="openShoppingcart()"
+    src="img/in-den-warenkorb-legen.svg">
+
 
     <div class="section-container">
         <h2 class="m-lr">Starter</h2>
@@ -65,12 +69,6 @@
                 </div>
 
                 <div class="delivery-items">
-                    <div>Lieferkosten</div>
-                    <div id="deliverycosts">5,00 €</div>
-                </div>
-
-                
-                <div class="delivery-items">
                     <div class="sale-code">
                         <input id="promotioncode" placeholder="Code" type="text" value=""></input>
                         <button onclick="calcSale()" class="code-btn">einlösen</button>
@@ -79,9 +77,21 @@
                 </div>
 
                 <div class="delivery-items">
+                    <div>Lieferkosten</div>
+                    <div id="deliverycosts">5,00 €</div>
+                </div>
+
+
+                <div class="delivery-items">
                     <div>Gesamt</div>
                     <div id="totalprice"> €</div>
                 </div>
+                
+<!--                 <div class="delivery-items">
+                    <div>Gesamt abzgl. Rabatt</div>
+                    <div id="priceAfterCode"> €</div>
+                </div> -->
+
 
             </div>
 
