@@ -98,7 +98,7 @@ function addToBasket(type, index, i) {
         showNewElement();
     }
     else if (type == 'maincourse' && cart.includes(maincourse[index])) {
-     /*    increaseAmount(type, index, i); */
+        /*    increaseAmount(type, index, i); */
         alert('Produkt ist bereits im Warenkorb, du kannst die Anzahl direkt im Warenkorb erhöhen');
     }
     if (type == 'dessert' && !cart.includes(dessert[index])) {
@@ -106,7 +106,7 @@ function addToBasket(type, index, i) {
         showNewElement();
     }
     else if (type == 'dessert' && cart.includes(dessert[index])) {
-     /*    increaseAmount(type, index); */
+        /*    increaseAmount(type, index); */
         alert('Produkt ist bereits im Warenkorb, du kannst die Anzahl direkt im Warenkorb erhöhen');
     }
     calcPayPrice();
@@ -126,16 +126,21 @@ function updateBasket() {
         document.getElementById('currentShoppingCart').innerHTML += `
     <div class="delivery-items">
     
+<div class="basket-style1">
     <div class="basket-amount"> ${cartItem['amount']}x </div>
     <div class="basket-names"> ${cartItem['name']} </div>
+</div>
+
+<div class="basket-style2">
     <div class="plusminus-container">
     <button onclick="lessAmount('${cartItem['type']}', ${index})" class="plusminus" data-min="0"> - </button>
     <button onclick="increaseAmount('${cartItem['type']}', ${index})" class="plusminus"> + </button>
     </div>
-    <div class="basket-price"> ${calculatePrice(cartItem)} € </div> 
     <img class="dustbin" onclick="deleteDish()" src="img/dustbin.svg">
+    <div class="basket-price"> ${calculatePrice(cartItem)} € </div> 
 
-    </div>`;
+</div>
+`;
     }
     calcSale();
 }
@@ -261,7 +266,7 @@ function calcSale() {
     } else {
         document.getElementById('discount').innerHTML = `${discount.toFixed(2).replace(".", ",")} €`;
     }
-  return discount; 
+    return discount;
 }
 
 
