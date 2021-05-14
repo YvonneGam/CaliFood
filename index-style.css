@@ -25,6 +25,15 @@
     width: 100%;
 }
 
+.sand-index {
+    z-index: -80;
+    position:absolute;
+    width:100vw;
+    height: 140vh;
+    object-fit: cover;
+    filter: opacity(0.5);
+}
+
 .text-main {
     z-index: 5;
     display: flex;
@@ -82,4 +91,59 @@ button:hover {
     z-index: 100;
     right: 10%;
     top: 55%;
+}
+
+/**Responsive Design */
+
+@media (max-width: 1450px) {
+
+    .slider-img img {
+height: 100vh; 
+    }
+}
+
+
+@media (max-width: 1200px) {
+
+    .interferer {
+top:20%;
+}
+}
+
+@media (max-width: 900px) {
+
+    .interferer {
+top:10%;
+right: 5%;
+}
+
+.main {
+    height: 90vh;
+}
+.text-main {
+    height: 85vh;
+}
+
+.h1 {
+    font-size: 3.6rem;
+}
+}
+
+@media (max-width: 850px) {
+
+    .interferer {
+top:20%;
+right: 5%;
+width: 180px;
+}
+}
+
+
+@media (max-width: 850px) {
+
+    .interferer {
+top:85%;
+right: 15%;
+width: 140px;
+}
 }

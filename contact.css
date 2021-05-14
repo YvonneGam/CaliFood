@@ -23,6 +23,10 @@ h2 {
    align-items: center;
 }
 
+.h2-contactformular {
+margin-top:70px;
+}
+
 .points {
     display: flex;
     align-items: center; 
@@ -83,6 +87,24 @@ body {
 display: flex;
 flex-direction: column;
 align-items: center;
+}
+
+.sand-contact {
+  z-index: -80;
+  position:absolute;
+  width: 100vw;
+  height: 230vh;
+  object-fit: cover;
+  filter: opacity(0.5);
+}
+
+.sand-contactformular {
+  z-index: -80;
+  position:absolute;
+  width:100vw;
+  height: 90vh;
+  object-fit: cover;
+  filter: opacity(0.5);
 }
 
 h1 {
@@ -313,3 +335,112 @@ input:focus, textarea:focus {
     .nameinput, .emailinput, #wpcf7-f156-p143-o1\20 formwrap > form > p > span.wpcf7-form-control-wrap.Message > textarea { width: 225px !important; }
   .btn { width: 110px; }
 }
+
+
+/* Responsive Menu */
+
+@media (max-width: 1750px) {
+  .sand-contact {
+    height: 286vh;
+  }
+}
+@media (max-width: 1100px) {
+  .sand-contact {
+    height: 280vh;
+  }
+  h2 {
+    font-size: 34px;
+  }
+}
+@media (max-width: 900px) {
+  .sand-contact {
+    height: 270vh;
+  }
+}
+@media (max-width: 850px) {
+  .sand-contact {
+    height: 225vh;
+  }
+  h2 {
+    font-size: 32px;
+  }
+  .icons-aboutus {
+    width: 50px;
+  }
+  .contact-img {
+    width: 300px;
+    height: 300px;
+  }
+  iframe {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 650px) {
+  .menu-links a {
+  font-size: 16px;
+}
+h2 {
+  font-size: 30px;
+}
+.text-center {
+  font-size: 14px !important;
+}
+.contact-img {
+  width: 250px;
+  height: 250px;
+}
+iframe {
+  width: 250px;
+  height: 250px;
+}
+.location {
+  margin-bottom: 15px;
+}
+.sand-contact {
+  height: 200vh;
+}
+}
+
+@media (max-width: 605px) {
+  .head-text {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 550px) {
+.location {
+  flex-direction: column;
+  align-items:center;
+}
+.contact-img {
+  margin-right: 0px !important; 
+  width: 100vw;
+}
+iframe {
+  width: 100vw;
+  height: 250px;
+  margin-top:30px;
+}
+.reverse {
+  flex-direction: column-reverse;
+}
+.head-text {
+  margin-top:30px;
+}
+}
+
+@media (max-width: 500px) {
+  .head-text {
+margin-right: 25px;
+margin-left: 25px;
+}
+.contact-img {
+  height: 180px;
+}
+iframe {
+  height: 180px;
+}
+}
+

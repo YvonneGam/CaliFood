@@ -48,6 +48,8 @@ function showNewElement() {
 }
 
 
+
+
 // Shopping Cart
 
 //Hier wird geprüft welches das jeweilige Produkt ist
@@ -64,21 +66,7 @@ function checkBasket(type, index) {
     }
 }
 
-/**
- * This funciton checks if the item is already in the basket
- * @param {*} type 
- * @param {*} index 
- * @param {*} item
- */
-/* function checkBasketExist(type, index, item) {
-    let itemInCart = cart.find(dish => dish.name == item.name);
-    console.log('incard', itemInCart);
-    if (itemInCart) {
-        alert('Das Gericht ist bereits im Warenkorb, du kannst die Anzahl direkt im Warenkorb erhöhen.');
-    } else { //if the item isn´t already in basket, its added here
-        addToBasket(type, index);
-    }
-} */
+
 
 /**
  * Item is pushed to array when clicking on the "plus" &checks if the item already exist in the basket

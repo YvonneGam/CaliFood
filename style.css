@@ -4,8 +4,18 @@ body {
     top: 0;
     bottom: 0;
 
-    background-color: #dfd6cc;
+   /*  background-color: #dfd6cc; */
     font-family: 'Lato', sans-serif;
+    object-fit: cover;
+}
+
+.sand {
+    z-index: -80;
+    position:absolute;
+    width:100vw;
+   height: 210vh;
+    object-fit: cover;
+    filter: opacity(0.5);
 }
 
 
@@ -173,7 +183,7 @@ animation: leftRight 0.4s ease-in-out;
 
 
 .shopping-basket-icon {
-    width: 70px;
+    width: 85px;
     cursor: pointer;
     position: fixed;
     right: 50px;
@@ -255,6 +265,10 @@ margin-top: 40px;
     height: 20px;
 }
 
+.totalprice {
+    font-weight: bold;
+}
+
 
 .empty-cart {
     text-align: center; 
@@ -284,4 +298,191 @@ cursor: pointer;
 input {
     border: none; 
     width: 60px;
+}
+
+
+@media (max-width: 1800px) {
+    .sand {
+        height: 228vh !important;
+    }
+}
+
+@media (max-width: 1280px) {
+    .sand {
+        height: 330vh !important;
+    }
+}
+
+@media (max-width: 1000px) {
+    .sand {
+        height: 360vh !important;
+    }
+
+    .shopping-basket-icon {
+        top: 50%;
+    }
+}
+@media (max-width: 780px) {
+    .sand {
+        height: 350vh !important;
+    }
+.food-selection {
+    width: 220px;
+}
+.plus {
+    margin-left: 170px;
+}
+h3 {
+    font-size: 1em !important;
+}
+.infotext-food {
+    font-size: 0.85em;
+}
+.info-price {
+    font-size: 1em;
+}
+}
+
+@media (max-width: 700px) {
+    .shopping-basket-icon {
+        right: 30px;
+    }
+}
+
+@media (max-width: 680px) {
+    .shopping-basket-icon {
+        right: 18px;
+    }
+}
+
+@media (max-width: 650px) {
+    .food-selection {
+        width: 190px;
+    }
+    .plus {
+        margin-left: 145px;
+    }
+    .shopping-basket-icon {
+        right: 22px;
+    }
+}
+
+@media (max-width: 620px) {
+    .shopping-basket-icon {
+        right: 18px;
+    }
+    .infotext-food {
+font-size: 0.8em !important;
+    }
+    .price-menu {
+        font-size: 0.9em;;
+    }
+    .sand {
+        height: 366vh !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .shopping-basket-icon {
+        right: 13px;
+        width: 75px;
+    }
+}
+@media (max-width: 585px) {
+    .shopping-basket-icon {
+        width: 70px;
+        right: 20px;
+    }
+    .food-selection {
+        width: 170px;
+    }
+    .food-img {
+        height: 120px;
+    }
+    .plus {
+        margin-left: 135px;
+        margin-top: -60px;
+    }
+}
+
+@media (max-width: 555px) {
+    .shopping-basket-icon {
+        right: 15px;
+    }
+}
+@media (max-width: 545px) {
+    .shopping-basket-icon {
+        right: 12px;
+        width: 65px;
+    }
+}
+@media (max-width: 540px) {
+    .shopping-basket-icon {
+        right: 12px;
+        width: 65px;
+    }
+    .food-selection {
+width: 280px;
+    }
+    .food-img {
+        height: 200px;
+    }
+    .shopping-basket-icon {
+        right: 45px;
+        width: 85px;
+    }
+    .food-selection {
+        margin-bottom: 25px;
+    }
+    .plus {
+        margin-left: 240px;
+    }
+}
+
+@media (max-width: 510px) {
+    .shopping-basket-icon {
+        right: 38px;
+    }
+}
+
+@media (max-width: 495px) {
+    .shopping-basket-icon {
+        right: 30px;
+    }
+}
+
+@media (max-width: 450px) {
+    .shopping-basket-icon {
+        right: 20px;
+    }
+}
+
+@media (max-width: 450px) {
+    .shopping-basket-icon {
+        right: 20px;
+    }
+    h3 {
+        font-size: 1.1em !important;
+    }
+    .infotext-food {
+        font-size: 1em !important;
+    }
+}
+
+@media (max-width: 450px) {
+    h3 {
+        font-size: 1.3em !important;
+    }
+    .infotext-food {
+        font-size: 1em !important;
+    }
+    .info-price {
+        font-size:1.3em !important;
+    }
+}
+
+@media (max-width: 350px) {
+    .food-img {
+        height: 180px;
+    }
 }

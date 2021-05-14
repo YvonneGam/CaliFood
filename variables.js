@@ -16,7 +16,7 @@ let starter = [{
     'name': 'Mini Burger',
     'info': '3 Miniburger, etc etc',
     'price': 7.50,
-    'img': 'img/pexels-photo-2147491.jpeg',
+    'img': 'img/pexels-photo-1841108.jpeg',
     'amount': 1,
     'type': 'starter'
 }, {
@@ -33,7 +33,7 @@ let maincourse = [{
     'name': 'San Francisco Bowl',
     'info': 'mit Lachs, Gurken, Mi-Nudeln, Granatapfelkernen, Guacamole',
     'price': 10.50,
-    'img': 'img/süßkartoffel_pexels-photo-1893555.jpeg',
+    'img': 'img/bowl_pexels-photo-7594049.jpeg',
     'amount': 1,
     'type': 'maincourse'
 }, {
@@ -54,7 +54,7 @@ let maincourse = [{
     'name': 'Chicken Ceasar Salad',
     'info': 'Gemischter Salat mit Tofu-Streifen und Sesamdressing',
     'price': 12.90,
-    'img': 'img/süßkartoffel_pexels-photo-1893555.jpeg',
+    'img': 'img/ceasar-salad_pexels-photo-5490900.jpeg',
     'amount': 1,
     'type': 'maincourse'
 }, {
